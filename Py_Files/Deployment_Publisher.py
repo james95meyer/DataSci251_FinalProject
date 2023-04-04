@@ -33,7 +33,7 @@ model = torch.jit.load('model_export.pt')
 model.eval()
 
 while True:
-    time.sleep(3)
+    time.sleep(1)
     files = os.listdir("Audio_Files")  
     with torch.no_grad():
         for file_name in files:
@@ -62,9 +62,10 @@ while True:
             _, prediction = torch.max(outputs,1)
             prediction = int(prediction)
             if prediction != 10:
-                f = open(filename, "rb")
+                f = open(file_name, "rb")
                 audiostring = f.read()
                 f.close()
                 byteArray = bytearray(audiostring)
                 local_mqttclient.publish(LOCAL_MQTT_TOPIC, byteArray)
                 print("Message published")
+                time.sleep(3)
