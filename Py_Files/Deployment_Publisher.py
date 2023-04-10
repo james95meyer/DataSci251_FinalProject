@@ -18,7 +18,7 @@ from torchaudio import transforms
 
 LOCAL_MQTT_HOST="localhost"
 LOCAL_MQTT_PORT=1883
-LOCAL_MQTT_TOPIC="test_topic"
+LOCAL_MQTT_TOPIC="audio_file"
 
 def on_connect_local(client, userdata, flags, rc):
         print("connected to local broker with rc: " + str(rc))
@@ -33,7 +33,7 @@ model = torch.jit.load('model_export.pt')
 model.eval()
 
 while True:
-    time.sleep(1)
+    #time.sleep(10)
     files = os.listdir("Audio_Files")  
     with torch.no_grad():
         for file_name in files:
@@ -68,4 +68,4 @@ while True:
                 byteArray = bytearray(audiostring)
                 local_mqttclient.publish(LOCAL_MQTT_TOPIC, byteArray)
                 print("Message published")
-                time.sleep(3)
+                time.sleep(10)
