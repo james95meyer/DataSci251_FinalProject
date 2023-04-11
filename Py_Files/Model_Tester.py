@@ -18,7 +18,7 @@ from torchaudio import transforms
 
 torchaudio.set_audio_backend('soundfile')
 
-model = torch.jit.load('model_export.pt')
+model = torch.jit.load('pt_Files/CNN_Model_cpu.pt')
 model.eval()
 
 prediction_file = 'Audio_Files/predictions.csv'
@@ -50,6 +50,10 @@ with torch.no_grad():
         outputs = model(data)
         _, prediction = torch.max(outputs,1)
         prediction = int(prediction)
+        if prediction == 24:
+            prediction = 1
+        else:
+            prediction = 0
         pred_list.append({'file':file_name, 'prediction':prediction})
         
         
