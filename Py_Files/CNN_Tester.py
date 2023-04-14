@@ -29,10 +29,10 @@ model.eval()
 prediction_file = 'CNN_predictions.csv'
 pred_list = []
 
-files = os.listdir("Audio_Files")  
+files = os.listdir("Test_Audio")  
 with torch.no_grad():
     for file_name in files:
-        full_file_name = "Audio_Files/" + file_name
+        full_file_name = "Test_Audio/" + file_name
         
         # Load an audiofile 
         data, sr = torchaudio.load(full_file_name)

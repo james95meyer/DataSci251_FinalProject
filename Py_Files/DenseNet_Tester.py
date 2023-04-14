@@ -65,10 +65,10 @@ model = torch.jit.load('pt_Files/myModel_export.pt')
 model.eval()
 
 #Generate a list of audio files and run inference on them
-files = os.listdir("Audio_Files")  
+files = os.listdir("Test_Audio")  
 with torch.no_grad():
     for file_name in files:
-        file_name = "Audio_Files/" + file_name
+        file_name = "Test_Audio/" + file_name
         clip, sr = librosa.load(file_name, sr = 44100)
         clip = torch.Tensor(clip)
         data = extract_spectrogram(clip)
