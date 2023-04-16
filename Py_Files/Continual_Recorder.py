@@ -27,7 +27,6 @@ while True:
     for i in range(0, int(fs / chunk * seconds)):
         data = stream.read(chunk)
         frames.append(data)
-    print(len(frames))
     
     # Save the recorded data as a WAV file
     timestamp = datetime.datetime.now().strftime("%H%M%S")
@@ -38,6 +37,4 @@ while True:
     wf.setframerate(fs)
     wf.writeframes(b''.join(frames))
     wf.close()
-    print("Recording saved")
-
-
+    print('Recording Saved')
