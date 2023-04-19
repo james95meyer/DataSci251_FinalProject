@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: processor
-        image: james95meyer/processor:v4
+        image: james95meyer/processor:v6

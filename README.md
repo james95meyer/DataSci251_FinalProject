@@ -4,4 +4,4 @@ Useful links
 
 Original dataset location: https://github.com/karolpiczak/ESC-50
 
-Sample Audio Deep Learning model I used: https://towardsdatascience.com/audio-deep-learning-made-simple-sound-classification-step-by-step-cebc936bbe5
+S3 Bucket:  https://s3.console.aws.amazon.com/s3/buckets/finalprojectjames95meyer?region=us-east-1&tab=objects#
